@@ -36,7 +36,7 @@ class LoginForm extends React.Component {
             <form id="login-form" onSubmit={this.formhandle}>
                 <div className='inputwrap'>
                     <FaUserAlt />
-                    <input type='text' name='email' placeholder='example@example.com' onChange={this.changeHandle}/>
+                    <input type='text' name='email' placeholder='example@example.com' onChange={this.changeHandle} autoFocus/>
                 </div>
                 <div className='inputwrap'>
                     <FaLock />

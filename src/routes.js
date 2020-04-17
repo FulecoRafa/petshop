@@ -7,13 +7,14 @@ import Header from './components/header';
 
 import Home from './pages/home';
 import Login from './pages/login';
+import Register from './pages/register';
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={props => (
         isAuth(sessionStorage.getItem('authtoken'))? (
             <Component {...props} />
         ) : (
-            <Redirect to={{pathname: '/', from: props.location}} />
+            <Redirect to={{pathname: '/login', from: props.location}} />
         )
     )}/>
 )
@@ -36,11 +37,21 @@ const LoginPage = () => {
     );
 }
 
+const RegisterPage = () => {
+    return(
+    <div id='page'>
+        <Header />
+        <Register />
+    </div>
+    );
+}
+
 const Routes = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/register' component={RegisterPage} />
             <PrivateRoute exact path='/app' component={() => (<h1>Logged in!</h1>)} />
         </Switch>
     </BrowserRouter>

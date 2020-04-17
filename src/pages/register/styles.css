@@ -1,0 +1,63 @@
+#login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#login-form *{
+    margin: 15px;
+    padding: 10px;
+}
+
+#login-form input:not([type=submit]){
+    background-color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    border-bottom: 5px solid purple;
+    transition: 0.2s ease;
+}
+#login-form input:not([type=submit]):focus{
+    border-bottom: 5px solid greenyellow;
+    font-size: 20px;
+}
+#login-form input[type=file]{
+    border: unset;
+    background: unset;
+}
+#login-form input[name="phone"]:invalid::after{
+    content: "Invalid phone number";
+    color: red;
+    font-size: 10px;
+    
+}
+
+.inputwrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#login-form input[type=submit]{
+    background: none;
+    font-weight: bolder;
+    font-size: 20px;
+    color: var(--headercolor);
+    border: 3px solid var(--contrastcolor);
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: 0.2s;
+}
+#login-form input[type=submit]:hover{
+    background-color: var(--contrastcolor);
+}
+
+.passMismatch{
+    border: 3px solid red;
+}
+.passMismatch:after{
+    font-size: 10px;
+    content: 'Passwords must match';
+}
